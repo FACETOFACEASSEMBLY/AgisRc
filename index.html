@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RaidBoost • Welcome</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="hero">
+    <h1>Welcome to RaidBoost</h1>
+    <div class="text-for-raided">
+    <p>Select what you want to do today. Join as a Raider and earn, or choose a Raid Package to boost your posts.</p></div>
+
+    <div class="options">
+      <div class="option-card" id="card1">
+        <h2>I Want to Raid</h2>
+        <p>Earn money by raiding posts on X (Twitter).</p>
+        <button onclick="window.location.href='raiders.html'">Join as Raider</button>
+      </div>
+
+      <div class="option-card" id="card2">
+        <h2>I Want to Get Raided</h2>
+        <p>Boost your engagement with real raiders.</p>
+        <button onclick="window.location.href='raided.html'">Get Raided</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 AGISRC RAIDBOOST • All Rights Reserved
+  </footer>
+
+  <script>
+    
+    const cards = document.querySelectorAll('.option-card');
+    const reveal = () => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          card.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', reveal);
+    reveal();
+  </script>
+</body>
+</html>

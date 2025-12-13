@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RaidBoost • Raider Verification</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <!-- TERMS OVERLAY -->
+<div id="termsOverlay">
+  <div class="terms-box">
+    <h2>RaidBoost Terms & Conditions</h2>
+
+    <div class="terms-content" id="termsContent">
+      <!-- Paste your Terms & Conditions text here -->
+      <p><strong>Welcome to RaidBoost.</strong></p>
+      <p>
+        By accessing or using RaidBoost services, you agree to these Terms & Conditions.
+        If you do not agree, please exit this website.
+      </p>
+
+      <p><strong>Nature of Service</strong></p>
+      <p>
+        RaidBoost provides manual, human-powered engagement services for X (Twitter).
+        Engagement results may vary and virality is not guaranteed.
+      </p>
+
+      <p><strong>Engagement Structure</strong></p>
+      <p>
+        Each raider operates multiple active accounts. Engagement scales based on raiders assigned.
+      </p>
+
+      <p><strong>Free Trial</strong></p>
+      <p>
+        Free trials are limited to one per client and may be withdrawn if abuse is detected.
+      </p>
+
+      <p><strong>Limitation of Liability</strong></p>
+      <p>
+        RaidBoost is not responsible for account restrictions, suspensions, or platform actions.
+      </p>
+
+      <p><strong>Acceptance</strong></p>
+      <p>
+        By continuing, you confirm that you have read, understood, and agreed to these terms.
+      </p>
+
+      <p><em>End of Terms & Conditions</em></p>
+    </div>
+
+    <div class="terms-actions">
+      <label class="checkbox">
+        <input type="checkbox" id="acceptCheckbox" disabled />
+        I have read and agree to the Terms & Conditions
+      </label>
+
+      <button id="continueBtn" disabled>Continue</button>
+    </div>
+  </div>
+</div>
+  <div class="image-raided">
+  <header>
+    <h1>Become a Raider</h1>
+    <div class="text-for-raided">
+    <p>Verify your X (Twitter) account to qualify as a registered Raider and start earning from raids.</p></div>
+  </header>
+
+  <section class="verify-section">
+    <div class="verify-card" id="verifyCard">
+      <h2>Verification Required</h2>
+      <p>
+        To join our official raiding team, you must verify your X (Twitter) account.
+        Send screenshots of your account to our WhatsApp for review. Verification takes
+        <strong>2 business days</strong>. Once approved, you will be added to our Telegram group.
+      </p>
+      <button class="verify-btn" onclick="window.location.href='https://wa.me/+2348105630089'">
+        Verify You Are Qualified To Raid
+      </button>
+    </div>
+  </section>
+  <section class="back-section">
+    <a href="index.html">&larr; Go Back to Previous Page</a>
+  </section>
+  </div>
+  <footer>
+    © 2025 RaidBoost • Raider Verification
+  </footer>
+
+  <script>
+    
+    const card = document.getElementById('verifyCard');
+    const reveal = () => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 60) {
+        card.classList.add('visible');
+      }
+    };
+
+    window.addEventListener('scroll', reveal);
+    reveal();
+  </script>
+  <script>
+  const overlay = document.getElementById("termsOverlay");
+  const termsContent = document.getElementById("termsContent");
+  const checkbox = document.getElementById("acceptCheckbox");
+  const continueBtn = document.getElementById("continueBtn");
+
+  // Check if already accepted
+  if (localStorage.getItem("raidboost_terms_accepted")) {
+    overlay.style.display = "none";
+  }
+
+  // Enable checkbox only after scrolling to bottom
+  termsContent.addEventListener("scroll", () => {
+    const scrolledToBottom =
+      termsContent.scrollTop + termsContent.clientHeight >=
+      termsContent.scrollHeight - 5;
+
+    if (scrolledToBottom) {
+      checkbox.disabled = false;
+    }
+  });
+
+  // Enable continue button when checkbox is checked
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+      continueBtn.classList.add("enabled");
+      continueBtn.disabled = false;
+    } else {
+      continueBtn.classList.remove("enabled");
+      continueBtn.disabled = true;
+    }
+  });
+
+  // Continue button logic and saving in local storage opuehh!!
+  continueBtn.addEventListener("click", () => {
+    localStorage.setItem("raidboost_terms_accepted", "true");
+    overlay.style.display = "none";
+  });
+</script>
+</body>
+</html>

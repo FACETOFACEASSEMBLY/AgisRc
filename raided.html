@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RaidBoost • Get Raided</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- TERMS OVERLAY -->
+<div id="termsOverlay">
+  <div class="terms-box">
+    <h2>RaidBoost Terms & Conditions</h2>
+
+    <div class="terms-content" id="termsContent">
+      <!-- Paste your Terms & Conditions text here -->
+      <p><strong>Welcome to RaidBoost.</strong></p>
+      <p>
+        By accessing or using RaidBoost services, you agree to these Terms & Conditions.
+        If you do not agree, please exit this website.
+      </p>
+
+      <p><strong>Nature of Service</strong></p>
+      <p>
+        RaidBoost provides manual, human-powered engagement services for X (Twitter).
+        Engagement results may vary and virality is not guaranteed.
+      </p>
+
+      <p><strong>Engagement Structure</strong></p>
+      <p>
+        Each raider operates multiple active accounts. Engagement scales based on raiders assigned.
+      </p>
+
+      <p><strong>Free Trial</strong></p>
+      <p>
+        Free trials are limited to one per client and may be withdrawn if abuse is detected.
+      </p>
+
+      <p><strong>Limitation of Liability</strong></p>
+      <p>
+        RaidBoost is not responsible for account restrictions, suspensions, or platform actions.
+      </p>
+
+      <p><strong>Acceptance</strong></p>
+      <p>
+        By continuing, you confirm that you have read, understood, and agreed to these terms.
+      </p>
+
+      <p><em>End of Terms & Conditions</em></p>
+    </div>
+
+    <div class="terms-actions">
+      <label class="checkbox">
+        <input type="checkbox" id="acceptCheckbox" disabled />
+        I have read and agree to the Terms & Conditions
+      </label>
+
+      <button id="continueBtn" disabled>Continue</button>
+    </div>
+  </div>
+</div>
+
+  <div class="image-raided">
+  <header>
+    <h1>RaidBoost Services</h1>
+    <div class="text-for-raided">
+    <p>Choose your preferred raid package and get redirected instantly to our Telegram group to complete your order.</p> </div>
+  </header>
+
+  <section class="plans-section">
+    <div class="plans-grid"></div>
+  </section>
+  <section class="back-section">
+    
+
+  <section class="features-section fade-on-scroll">
+  <h2 class="features-title fade-on-scroll">What You Get When You Get Raided</h2>
+  <div class="text-for-raided">
+  <p class="features-subtitle fade-on-scroll">
+    Real engagement, full transparency, and zero risk — built to help your post perform naturally.
+  </p></div>
+
+  <div class="features-grid">
+
+    <div class="feature-card fade-on-scroll">
+      <h3>Real Engagement System</h3>
+      <p>
+        Every raider assigned to your campaign operates multiple active X (Twitter) accounts.
+        For each raider, you receive <strong>5 likes, 10 comments, and 5 reposts</strong>.
+      </p>
+    </div>
+
+    <div class="feature-card fade-on-scroll">
+      <h3>Guaranteed Engagement Math</h3>
+      <p>
+        If 5 raiders work on your post, you receive <strong>25 likes, 50 comments, and 25 reposts</strong>.
+        Engagement scales transparently with the number of raiders.
+      </p>
+    </div>
+
+    <div class="feature-card fade-on-scroll">
+      <h3>3-Day Free Trial</h3>
+      <p>
+        Test our service for <strong>three days at no cost</strong>.
+        See real engagement results before making any payment.
+      </p>
+    </div>
+
+    <div class="feature-card fade-on-scroll">
+      <h3>Live Tracking via Telegram Bot</h3>
+      <p>
+        Monitor your post’s likes, comments, and reposts in real time using our Telegram bot.
+        Full visibility ensures raiders are actively working.
+      </p>
+    </div>
+
+    <div class="feature-card fade-on-scroll">
+      <h3>Human, Context-Aware Comments</h3>
+      <p>
+        All comments are written manually, relevant to your post,
+        and reviewed to avoid spam or repetitive patterns.
+      </p>
+    </div>
+
+    <div class="feature-card fade-on-scroll">
+      <h3>Safe & Platform-Friendly</h3>
+      <p>
+        Engagement is delivered gradually to avoid sudden spikes,
+        protecting your X account from flags or restrictions.
+      </p>
+    </div>
+
+    <div class="feature-card fade-on-scroll">
+      <h3>Dedicated Client Telegram Group</h3>
+      <p>
+        Once onboarded, you gain access to a private Telegram group
+        for campaign updates, communication, and support.
+      </p>
+    </div>
+
+    <div class="feature-card fade-on-scroll">
+      <h3>Redo & Accountability Policy</h3>
+      <p>
+        If engagement falls below expected standards,
+        your raid will be re-run or adjusted at no extra cost.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<a href="index.html">&larr; Go Back to Previous Page</a>
+  </section>
+</div>
+
+  <footer>
+    © 2025 RaidBoost • All Rights Reserved
+  </footer>
+
+  <script src="raidbootService.js" type="module"></script>
+  <script>
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  document.querySelectorAll(".fade-on-scroll").forEach(el => {
+    observer.observe(el);
+  });
+</script>
+<!-- this is for checking and verifying terms and condition with local storage -->
+<script>
+  const overlay = document.getElementById("termsOverlay");
+  const termsContent = document.getElementById("termsContent");
+  const checkbox = document.getElementById("acceptCheckbox");
+  const continueBtn = document.getElementById("continueBtn");
+
+  // Check if already accepted
+  if (localStorage.getItem("raidboost_terms_accepted")) {
+    overlay.style.display = "none";
+  }
+
+  // Enable checkbox only after scrolling to bottom
+  termsContent.addEventListener("scroll", () => {
+    const scrolledToBottom =
+      termsContent.scrollTop + termsContent.clientHeight >=
+      termsContent.scrollHeight - 5;
+
+    if (scrolledToBottom) {
+      checkbox.disabled = false;
+    }
+  });
+
+  // Enable continue button when checkbox is checked
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+      continueBtn.classList.add("enabled");
+      continueBtn.disabled = false;
+    } else {
+      continueBtn.classList.remove("enabled");
+      continueBtn.disabled = true;
+    }
+  });
+
+  // Continue button logic and saving in local storage opuehh!!
+  continueBtn.addEventListener("click", () => {
+    localStorage.setItem("raidboost_terms_accepted", "true");
+    overlay.style.display = "none";
+  });
+</script>
+<!-- FLOATING FEATURES BUTTON -->
+<button id="featuresBtn" class="floating-features-btn">
+  ⛏️ Features 
+</button>
+<script>
+  const floatingBtn = document.getElementById("featuresBtn");
+  const featuresSection = document.querySelector(".features-section");
+  const plansSection = document.querySelector(".plans-section");
+
+  let mode = "features";
+
+  // Button click behavior
+  floatingBtn.addEventListener("click", () => {
+    if (mode === "features") {
+      featuresSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      plansSection.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+
+  // Scroll-based detection (more reliable than IntersectionObserver here)
+  window.addEventListener("scroll", () => {
+    const featuresTop = featuresSection.getBoundingClientRect().top;
+    const featuresHeight = featuresSection.offsetHeight;
+
+    // If user is inside or below the features section
+    if (featuresTop <= 100 && featuresTop > -featuresHeight + 100) {
+      if (mode !== "pricing") {
+        mode = "pricing";
+        floatingBtn.textContent = "Back to Pricing 💕";
+        floatingBtn.classList.add("pricing-mode");
+      }
+    } 
+    // If user scrolls back above features
+    else if (featuresTop > 100) {
+      if (mode !== "features") {
+        mode = "features";
+        floatingBtn.textContent = "⛏️ Features";
+        floatingBtn.classList.remove("pricing-mode");
+      }
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
